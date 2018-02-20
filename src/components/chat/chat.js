@@ -40,10 +40,9 @@ class Chat extends React.Component {
     fetch("http://192.168.1.198:8080/ChatBotRest/hello", {
       method: "POST",
       headers: {
-        Accept: "application/json, text/plain, */*",
         "Content-Type": "text/plain"
       },
-      body: JSON.stringify(search)
+      body: search
     }).then(response => {
       if (response.ok) {
         return response.json()
