@@ -1,0 +1,32 @@
+	[
+		{
+			"id": 1,
+			"name": "Hanna Hindskog",
+			"phoneNumber": "+46723610211",
+			"emailAddress": "hanna@gmail.com"
+		},
+		{
+			"id": 2,
+			"name": "Miriam Hönig",
+			"phoneNumber": "+46498123456",
+			"emailAddress": "miriam@hotmail.com"
+		},
+		{
+			"id": 3,
+			"name": "Siri Timewell",
+			"phoneNumber": "+46499673450",
+			"emailAddress": "siri@hotmail.com"
+		},
+		{
+			"id": 4,
+			"name": "Damien Slimani",
+			"phoneNumber": "+46707865434",
+			"emailAddress": "damien@technigo.io"
+		},
+		{
+			"id": 5,
+			"name": "Sandra Pettersson",
+			"phoneNumber": "+46723564578",
+			"emailAddress": "sandra@technigo.io"
+		}
+	]
