@@ -8,7 +8,8 @@ class Chat extends React.Component {
     super(props)
     this.state = {
       search: "",
-      conversation: [{ userMessage: "User" }, { serverMessage: "Server" }, { userMessage: "Hej Servern" }, { serverMessage: "Hej User" }]
+      conversation: [{ userMessage: "User" }, { serverMessage: "Server" }, { userMessage: "Hej Servern" }, { serverMessage: "Hej User" }],
+      searchResult: []
     }
   }
 
@@ -47,10 +48,24 @@ class Chat extends React.Component {
       if (response.ok) {
         return response.json()
           .then(json => {
-            const message = { serverMessage: json }
-            this.setState({
-              conversation: [...this.state.conversation, message]
-            })
+            if (json.type === "product") {
+              const message = { serverMessage: "This is your result" }
+              this.setState({
+                searchResult: [...this.state.searchResult, json],
+                conversation: [...this.state.conversation, message]
+              })
+            } else if (json.type === "employee") {
+              const message = { serverMessage: "This is your result" }
+              this.setState({
+                searchResult: [...this.state.searchResult, json],
+                conversation: [...this.state.conversation, message]
+              })
+            } else {
+              const message = { serverMessage: json }
+              this.setState({
+                conversation: [...this.state.conversation, message]
+              })
+            }
           })
       }
     })
