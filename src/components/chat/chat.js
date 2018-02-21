@@ -1,5 +1,6 @@
 import React from "react"
 import Message from "./message"
+import ResultServer from "./resultserver"
 import "./index.css"
 
 class Chat extends React.Component {
@@ -9,7 +10,21 @@ class Chat extends React.Component {
     this.state = {
       search: "",
       conversation: [{ userMessage: "User" }, { serverMessage: "Server" }, { userMessage: "Hej Servern" }, { serverMessage: "Hej User" }],
-      searchResult: []
+      searchResult: [{
+        id: 3,
+        name: "John Doe",
+        start: "2018-01-01",
+        location: "Stockholm",
+        phone: "08-112233",
+        tier: 0,
+        type: "employee"
+      }, {
+        id: 2,
+        name: "Mission Impossible",
+        start: "2018-04-01",
+        location: "The Netherlands",
+        type: "project"
+      }]
     }
   }
 
@@ -73,25 +88,40 @@ class Chat extends React.Component {
 
   render() {
     return (
-      <div className="chat-bot-view">
-        <div className="conversation">
-          {this.state.conversation.map((item, index) => (
-            <Message
-              key={item.id}
+      <div className="page-container">
+        <div className="chat-bot-view">
+          <div className="conversation">
+            {this.state.conversation.map((item, index) => (
+              <Message
+                key={item.id}
+                index={index}
+                userMessage={item.userMessage}
+                serverMessage={item.serverMessage} />
+            ))}
+          </div>
+          <form onSubmit={this.handleSubmit}>
+            <input
+              className="search-input"
+              type="text"
+              placeholder="type your message here.."
+              value={this.state.search}
+              onChange={this.updateSearch} />
+            <button type="submit">Send</button>
+          </form>
+        </div>
+        <div className="search-result">
+          {this.state.searchResult.map((item, index) => (
+            <ResultServer
               index={index}
-              userMessage={item.userMessage}
-              serverMessage={item.serverMessage} />
+              key={item.id}
+              name={item.name}
+              start={item.start}
+              location={item.location}
+              phone={item.phone}
+              tier={item.tier}
+              type={item.type} />
           ))}
         </div>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            className="search-input"
-            type="text"
-            placeholder="type your message here.."
-            value={this.state.search}
-            onChange={this.updateSearch} />
-          <button type="submit">Send</button>
-        </form>
       </div>
     )
   }

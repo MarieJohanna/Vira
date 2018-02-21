@@ -1,3 +1,8 @@
+.page-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .chat-bot-view {
   width: 380px;
   display: flex;
@@ -39,4 +44,28 @@ button {
   border-radius: 5px;
   margin-left: 1%;
   background-color: rgb(243, 112, 33);
+}
+
+.search-result {
+  padding: 10px;
+  width: 380px;
+  background-color: #fff;
+  border: 1px solid #3a43ab;
+}
+
+.type p {
+  padding: 0;
+  margin: 0;
+}
+
+.type {
+  margin: 5px;
+}
+
+.employee {
+  color: #3a43ab;
+}
+
+.project {
+  color: rgb(243, 112, 33);
 }
